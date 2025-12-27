@@ -19,8 +19,19 @@
     "css-loader": "^6.8.0",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.0",
-    "webpack": "^5.88.0",
-    "webpack-cli": "^5.1.0",
+    "webpack": "^5.103.0",
+    "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samat7/webpr.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samat7/webpr/issues"
+  },
+  "homepage": "https://github.com/samat7/webpr#readme"
 }
