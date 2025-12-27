@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Select DOM elements
+    
     const todoForm = document.getElementById('todo-form');
     const todoInput = document.getElementById('todo-input');
     const todoList = document.getElementById('todo-list');
@@ -7,20 +7,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const clearAllBtn = document.getElementById('clear-all');
     const emptyState = document.querySelector('.empty-state');
 
-    // Initial tasks (optional demo data)
+   
     let tasks = [];
 
-    // Helper to render tasks
+
     function renderTasks() {
-        // Clear list except empty state if we want to toggle it, but easier to just clear innerHTML
+       
         todoList.innerHTML = '';
 
         if (tasks.length === 0) {
             todoList.appendChild(emptyState);
             emptyState.style.display = 'block';
         } else {
-            // emptyState.style.display = 'none'; // Element is removed from DOM when clearing innerHTML, so we need to recreate it or just not append if tasks exist. 
-            // Better approach:
+           
             tasks.forEach((task, index) => {
                 const li = document.createElement('li');
                 li.className = `todo-item ${task.completed ? 'completed' : ''}`;
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </button>
                 `;
 
-                // Add event listeners for this item
+            
                 const checkbox = li.querySelector('.checkbox');
                 checkbox.addEventListener('click', () => toggleTask(task.id));
                 
@@ -53,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
         updateCount();
     }
 
-    // Add Task
+
     function addTask(text) {
         const newTask = {
             id: Date.now(),
@@ -65,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         saveTasks();
     }
 
-    // Toggle Task
+
     function toggleTask(id) {
         tasks = tasks.map(task => 
             task.id === id ? { ...task, completed: !task.completed } : task
@@ -74,27 +73,27 @@ document.addEventListener('DOMContentLoaded', () => {
         saveTasks();
     }
 
-    // Delete Task
+    // удаление
     function deleteTask(id) {
         tasks = tasks.filter(task => task.id !== id);
         renderTasks();
         saveTasks();
     }
 
-    // Clear All
+    // очистка
     function clearAll() {
         tasks = [];
         renderTasks();
         saveTasks();
     }
 
-    // Update Count
+    // обновление счетчика
     function updateCount() {
         const activeCount = tasks.filter(t => !t.completed).length;
         taskCountSpan.textContent = `${activeCount} задач${getDeclension(activeCount)}`;
     }
 
-    // Utility: Declension for Russian words
+    // окончания
     function getDeclension(number) {
         const lastDigit = number % 10;
         const lastTwoDigits = number % 100;
@@ -111,14 +110,14 @@ document.addEventListener('DOMContentLoaded', () => {
         return ''; // задач
     }
 
-    // Utility: Prevention XSS
+    // экранирование
     function escapeHtml(text) {
         const div = document.createElement('div');
         div.textContent = text;
         return div.innerHTML;
     }
 
-    // Save/Load from LocalStorage (Bonus feature)
+    // сохранение и загрузка
     function saveTasks() {
         localStorage.setItem('lab1_tasks', JSON.stringify(tasks));
     }
@@ -131,7 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Event Listeners
+    // события
     todoForm.addEventListener('submit', (e) => {
         e.preventDefault();
         const text = todoInput.value.trim();
@@ -143,6 +142,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     clearAllBtn.addEventListener('click', clearAll);
 
-    // Initial load
     loadTasks();
 });
