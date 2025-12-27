@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List | Lab 1</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <main class="container">
+        <header class="app-header">
+            <h1>Мои задачи</h1>
+            <p>Планируй свой день эффективно</p>
+        </header>
+
+        <section class="todo-card">
+            <form id="todo-form" class="todo-form">
+                <input type="text" id="todo-input" placeholder="Что нужно сделать?" autocomplete="off" required>
+                <button type="submit" class="add-btn" aria-label="Добавить задачу">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5V19M5 12H19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </form>
+
+            <div class="todo-list-container">
+                <ul id="todo-list" class="todo-list">
+                    <!-- Tasks will be added here -->
+                    <li class="empty-state">
+                        <p>Список задач пуст. Добавьте что-нибудь!</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="todo-footer">
+                <span id="task-count">0 задач</span>
+                <button id="clear-all" class="text-btn">Очистить все</button>
+            </div>
+        </section>
+    </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>
