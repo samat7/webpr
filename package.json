@@ -1,39 +1,66 @@
 {
-  "name": "news-portal",
+  "name": "lab4",
   "version": "1.0.0",
-  "description": "Новостной портал на React",
-  "main": "src/index.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --mode development",
+    "test": "echo \"No tests specified\" && exit 0",
+    "start": "webpack serve --mode development",
     "build": "webpack --mode production",
-    "start": "webpack serve --mode development --open",
-    "prepare": "husky"
-  },
-  "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.22.0",
-    "@babel/preset-react": "^7.22.0",
-    "babel-loader": "^9.1.0",
-    "css-loader": "^6.8.0",
-    "html-webpack-plugin": "^5.5.0",
-    "husky": "^9.1.7",
-    "style-loader": "^3.3.0",
-    "webpack": "^5.103.0",
-    "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/samat7/webpr.git"
+    "lint": "eslint src/**/*.{ts,tsx}",
+    "lint:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "format": "prettier --write \"  /**/*.{ts,tsx,css,json}\"",
+    "prepare": "husky",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/samat7/webpr/issues"
+  "description": "",
+  "dependencies": {
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
   },
-  "homepage": "https://github.com/samat7/webpr#readme"
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-interactions": "^8.4.7",
+    "@storybook/addon-links": "^8.4.7",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/react": "^8.4.7",
+    "@storybook/react-webpack5": "^8.4.7",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "autoprefixer": "^10.4.23",
+    "css-loader": "^7.1.2",
+    "eslint": "^8.57.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "html-webpack-plugin": "^5.6.5",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "postcss": "^8.5.6",
+    "postcss-loader": "^8.2.0",
+    "prettier": "^3.2.5",
+    "storybook": "^8.4.7",
+    "style-loader": "^4.0.0",
+    "tailwindcss": "^4.1.18",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
+    "webpack": "^5.104.1",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "src/**/*.{css,json}": [
+      "prettier --write"
+    ]
+  }
 }
