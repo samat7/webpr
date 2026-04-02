@@ -7,7 +7,7 @@ from ..services.auth_service import AuthService
 from ..dependencies import get_current_user
 from ..models.user import User
 
-router = APIRouter(prefix="/api/auth", tags=["authentication"])
+router = APIRouter(prefix="/auth", tags=["authentication"])
 
 @router.post("/register", response_model=Token, status_code=status.HTTP_201_CREATED)
 async def register(user: UserCreate, db: Session = Depends(get_db)):

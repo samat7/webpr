@@ -7,7 +7,7 @@ from ..services.task_service import TaskService
 from ..dependencies import get_current_user
 from ..models.user import User
 
-router = APIRouter(prefix="/api/tasks", tags=["tasks"])
+router = APIRouter(prefix="/tasks", tags=["tasks"])
 
 @router.get("/", response_model=List[TaskResponse])
 async def get_tasks(
